@@ -1,0 +1,30 @@
+server:
+  host: "0.0.0.0"
+  port: 8102
+  data_dir: "/data"
+  
+database:
+  path: "/data/anyquery.db"
+  
+mcp:
+  enabled: true
+  transport: "stdio"
+  
+plugins:
+  - name: "core"
+    enabled: true
+  - name: "json"
+    enabled: true
+  - name: "csv"
+    enabled: true
+  - name: "sqlite"
+    enabled: true
+    
+logging:
+  level: "info"
+  format: "json"
+  
+security:
+  enable_auth: false  # Disable for internal network
+  cors_enabled: true
+  allowed_origins: ["*"]

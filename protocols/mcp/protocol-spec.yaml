@@ -1,0 +1,164 @@
+# MCP (Model Context Protocol) Specification
+# Protocol for model-context communication in Manas
+
+version: 1.0
+protocol:
+  name: "Model Context Protocol"
+  abbreviation: "MCP"
+  type: "request-response"
+  transport: ["websocket", "http", "grpc"]
+
+specification:
+  message_format:
+    request:
+      id: "uuid"
+      method: "string"
+      params: "object"
+      context: "object"
+      timestamp: "ISO8601"
+    
+    response:
+      id: "uuid"
+      result: "object"
+      error: "object|null"
+      context: "object"
+      timestamp: "ISO8601"
+    
+    notification:
+      method: "string"
+      params: "object"
+      timestamp: "ISO8601"
+
+  methods:
+    # Context Management
+    - name: "context.get"
+      description: "Retrieve current context"
+      params:
+        scope: "string"
+        depth: "integer"
+    
+    - name: "context.set"
+      description: "Update context"
+      params:
+        scope: "string"
+        data: "object"
+        merge: "boolean"
+    
+    # Model Interaction
+    - name: "model.query"
+      description: "Query the model"
+      params:
+        prompt: "string"
+        context: "object"
+        options: "object"
+    
+    - name: "model.complete"
+      description: "Request completion"
+      params:
+        prefix: "string"
+        suffix: "string"
+        max_tokens: "integer"
+    
+    # Tool Execution
+    - name: "tool.list"
+      description: "List available tools"
+      params:
+        category: "string|null"
+    
+    - name: "tool.execute"
+      description: "Execute a tool"
+      params:
+        name: "string"
+        arguments: "object"
+        async: "boolean"
+    
+    # Memory Operations
+    - name: "memory.store"
+      description: "Store in memory"
+      params:
+        type: "string"
+        content: "object"
+        metadata: "object"
+    
+    - name: "memory.retrieve"
+      description: "Retrieve from memory"
+      params:
+        query: "string|object"
+        limit: "integer"
+        filters: "object"
+
+  error_codes:
+    - code: -32700
+      message: "Parse error"
+      meaning: "Invalid JSON"
+    
+    - code: -32600
+      message: "Invalid request"
+      meaning: "Invalid request object"
+    
+    - code: -32601
+      message: "Method not found"
+      meaning: "Unknown method"
+    
+    - code: -32602
+      message: "Invalid params"
+      meaning: "Invalid method parameters"
+    
+    - code: -32603
+      message: "Internal error"
+      meaning: "Internal server error"
+    
+    - code: 1001
+      message: "Context error"
+      meaning: "Context operation failed"
+    
+    - code: 1002
+      message: "Model error"
+      meaning: "Model operation failed"
+    
+    - code: 1003
+      message: "Tool error"
+      meaning: "Tool execution failed"
+    
+    - code: 1004
+      message: "Memory error"
+      meaning: "Memory operation failed"
+
+  security:
+    authentication:
+      - type: "token"
+        header: "Authorization"
+        format: "Bearer {token}"
+    
+    encryption:
+      - transport: "TLS 1.3"
+        minimum_version: "1.2"
+    
+    rate_limiting:
+      default: 100
+      burst: 200
+      window: "1m"
+
+  extensions:
+    streaming:
+      enabled: true
+      protocols: ["SSE", "WebSocket"]
+    
+    batching:
+      enabled: true
+      max_batch_size: 100
+      max_wait_time: "100ms"
+    
+    compression:
+      enabled: true
+      algorithms: ["gzip", "zstd"]
+
+implementation:
+  reference: "core/mcp-central"
+  libraries:
+    - language: "python"
+      package: "manas-mcp"
+    - language: "typescript"
+      package: "@manas/mcp"
+    - language: "go"
+      package: "github.com/manas/mcp"

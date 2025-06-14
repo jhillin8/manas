@@ -1,0 +1,24 @@
+{
+  "attributes": [
+    "hosting:hybrid"
+  ],
+  "description": "test",
+  "environmentVariablesJsonSchema": {
+    "properties": {},
+    "type": "object",
+    "required": []
+  },
+  "id": "h1ediadwu1",
+  "name": "wangyue",
+  "namespace": "modelcontextprotocol",
+  "repository": {
+    "url": "https://github.com/modelcontextprotocol/servers"
+  },
+  "slug": "servers",
+  "spdxLicense": {
+    "name": "MIT License",
+    "url": "https://spdx.org/licenses/MIT.json"
+  },
+  "tools": [],
+  "url": "https://glama.ai/mcp/servers/h1ediadwu1"
+}

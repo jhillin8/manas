@@ -1,0 +1,42 @@
+{
+  "servers": [
+    {
+      "name": "anyquery",
+      "command": "npx -y anyquery server --host 0.0.0.0 --port 8102",
+      "category": "Aggregators",
+      "description": "Multi-service aggregator with 40+ integrations via SQL"
+    },
+    {
+      "name": "metatool",
+      "command": "npx -y @metatool/mcp-server",
+      "category": "Developer Tools",
+      "description": "Meta-tool for MCP server management"
+    },
+    {
+      "name": "mindsdb",
+      "command": "python -m mindsdb --api mcp",
+      "category": "AI/ML",
+      "description": "AI/ML platform with MCP integration"
+    },
+    {
+      "name": "pipedream",
+      "command": "npx -y @pipedream/mcp-server",
+      "category": "API Integration",
+      "description": "API aggregator with 2,500+ API integrations"
+    },
+    {
+      "name": "pearl",
+      "command": "npx -y mcp-remote sse https://mcp.pearl.com/sse",
+      "category": "Communication",
+      "description": "Pearl MCP server for communication"
+    },
+    {
+      "name": "endgame",
+      "command": "npx -y @modelcontextprotocol/server-endgame",
+      "category": "Developer Tools",
+      "description": "Endgame server for MCP"
+    }
+  ],
+  "version": "1.0.0",
+  "lastUpdated": "2025-06-14"
+}

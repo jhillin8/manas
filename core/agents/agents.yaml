@@ -1,0 +1,72 @@
+# Agent Registry Configuration
+# This file manages all agent registrations in the Manas system
+
+version: 1.0
+registry:
+  agents:
+    - id: core-infrastructure
+      name: "Core Infrastructure Specialist"
+      type: "system"
+      capabilities:
+        - "infrastructure-management"
+        - "mcp-integration"
+        - "service-orchestration"
+      config:
+        priority: "high"
+        auto_start: true
+    
+    - id: memory-architecture
+      name: "Memory Architecture Specialist"
+      type: "system"
+      capabilities:
+        - "memory-management"
+        - "temporal-policies"
+        - "vector-operations"
+      config:
+        priority: "high"
+        auto_start: true
+    
+    - id: project-migration
+      name: "Project Migration Specialist"
+      type: "system"
+      capabilities:
+        - "project-management"
+        - "build-automation"
+        - "dependency-resolution"
+      config:
+        priority: "high"
+        auto_start: true
+    
+    - id: knowledge-consolidation
+      name: "Knowledge Consolidation Specialist"
+      type: "system"
+      capabilities:
+        - "knowledge-graph"
+        - "documentation"
+        - "pattern-recognition"
+      config:
+        priority: "medium"
+        auto_start: true
+    
+    - id: infrastructure-protocols
+      name: "Infrastructure & Protocols Specialist"
+      type: "system"
+      capabilities:
+        - "protocol-implementation"
+        - "monitoring"
+        - "security"
+      config:
+        priority: "medium"
+        auto_start: true
+
+# Agent Communication Settings
+communication:
+  broker: "context-broker"
+  protocol: "mcp"
+  timeout: 30
+
+# Agent Discovery Settings
+discovery:
+  enabled: true
+  refresh_interval: 60
+  service_registry: "core/orchestrator"

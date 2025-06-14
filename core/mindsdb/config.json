@@ -1,0 +1,47 @@
+{
+  "api": {
+    "http": {
+      "host": "0.0.0.0",
+      "port": 47334
+    },
+    "mysql": {
+      "host": "0.0.0.0", 
+      "port": 47335,
+      "enabled": true
+    }
+  },
+  "storage": {
+    "dir": "/opt/mindsdb/var"
+  },
+  "integrations": {
+    "default_handler": "postgres",
+    "handlers": {
+      "sqlite": {
+        "enabled": true
+      },
+      "postgres": {
+        "enabled": true
+      },
+      "mysql": {
+        "enabled": true
+      }
+    }
+  },
+  "mcp": {
+    "enabled": true,
+    "server": {
+      "host": "0.0.0.0",
+      "port": 47336
+    }
+  },
+  "log": {
+    "level": "INFO",
+    "format": "json"
+  },
+  "cloud": {
+    "enabled": false
+  },
+  "auth": {
+    "enabled": false
+  }
+}
