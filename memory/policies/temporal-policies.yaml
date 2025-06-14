@@ -1,0 +1,77 @@
+# Temporal Memory Policies
+# Defines rules for memory lifecycle, retention, and archival
+
+version: 1.0
+
+policies:
+  retention:
+    active:
+      duration: "30d"  # Keep in active memory for 30 days
+      access_count_threshold: 5  # Move to active if accessed 5+ times
+      importance_threshold: 0.7  # Keep if importance score > 0.7
+    
+    archive:
+      duration: "365d"  # Keep in archive for 1 year
+      compression: true
+      access_restoration: true  # Restore to active on access
+    
+    deletion:
+      inactive_period: "365d"  # Delete if not accessed for 1 year
+      importance_threshold: 0.3  # Delete if importance < 0.3
+      require_confirmation: true
+
+  memory_types:
+    episodic:
+      active_duration: "7d"
+      compression_ratio: 0.5
+      index_fields: ["timestamp", "context", "participants"]
+    
+    semantic:
+      active_duration: "90d"
+      compression_ratio: 0.3
+      index_fields: ["concepts", "relationships", "domain"]
+    
+    procedural:
+      active_duration: "infinite"  # Never auto-archive procedures
+      compression_ratio: 0.1
+      index_fields: ["action", "prerequisites", "outcomes"]
+
+  multi_modal:
+    vision:
+      format: "embeddings"
+      compression: "progressive"
+      retention: "30d"
+    
+    audio:
+      format: "transcripts+embeddings"
+      compression: "lossy"
+      retention: "14d"
+    
+    code:
+      format: "ast+embeddings"
+      compression: "lossless"
+      retention: "90d"
+
+  governance:
+    privacy:
+      anonymize_after: "90d"
+      redact_sensitive: true
+      audit_trail: true
+    
+    compliance:
+      data_residency: "configurable"
+      encryption_at_rest: true
+      right_to_forget: true
+
+  triggers:
+    - name: "daily_cleanup"
+      schedule: "0 2 * * *"  # 2 AM daily
+      action: "archive_stale_memories"
+    
+    - name: "weekly_compression"
+      schedule: "0 3 * * 0"  # 3 AM Sunday
+      action: "compress_archived_memories"
+    
+    - name: "monthly_analysis"
+      schedule: "0 4 1 * *"  # 4 AM first of month
+      action: "analyze_memory_patterns"

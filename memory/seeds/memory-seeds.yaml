@@ -1,0 +1,164 @@
+# Memory Seed Templates
+# Templates for initializing different types of memories
+
+version: 1.0
+
+seed_templates:
+  episodic:
+    template_id: "episodic-base"
+    schema:
+      timestamp: "ISO8601"
+      context:
+        location: "string"
+        participants: ["string"]
+        activity: "string"
+      content:
+        narrative: "text"
+        emotions: ["string"]
+        significance: "float"
+      metadata:
+        source: "string"
+        confidence: "float"
+        tags: ["string"]
+    
+    initialization:
+      default_significance: 0.5
+      auto_tag: true
+      emotion_detection: true
+
+  semantic:
+    template_id: "semantic-base"
+    schema:
+      concepts:
+        primary: "string"
+        related: ["string"]
+        hierarchy: "tree"
+      definitions:
+        formal: "text"
+        contextual: "text"
+        examples: ["text"]
+      relationships:
+        is_a: ["string"]
+        part_of: ["string"]
+        related_to: ["string"]
+      metadata:
+        domain: "string"
+        confidence: "float"
+        sources: ["string"]
+    
+    initialization:
+      auto_link: true
+      hierarchy_depth: 3
+      relationship_threshold: 0.6
+
+  procedural:
+    template_id: "procedural-base"
+    schema:
+      procedure:
+        name: "string"
+        description: "text"
+        category: "string"
+      steps:
+        - order: "integer"
+          action: "string"
+          parameters: "object"
+          conditions: ["string"]
+      prerequisites:
+        knowledge: ["string"]
+        resources: ["string"]
+        permissions: ["string"]
+      outcomes:
+        success: "object"
+        failure: "object"
+        side_effects: ["string"]
+      metadata:
+        complexity: "string"
+        duration: "duration"
+        last_updated: "timestamp"
+    
+    initialization:
+      validate_steps: true
+      check_prerequisites: true
+      version_control: true
+
+  multi_modal:
+    vision:
+      template_id: "vision-base"
+      schema:
+        image_data:
+          embeddings: "vector"
+          features: ["string"]
+          objects: ["object"]
+        context:
+          scene: "string"
+          timestamp: "ISO8601"
+          location: "string"
+        analysis:
+          primary_subject: "string"
+          emotions: ["string"]
+          activities: ["string"]
+    
+    audio:
+      template_id: "audio-base"
+      schema:
+        audio_data:
+          transcript: "text"
+          embeddings: "vector"
+          speaker_profiles: ["object"]
+        context:
+          duration: "duration"
+          timestamp: "ISO8601"
+          environment: "string"
+        analysis:
+          topics: ["string"]
+          sentiment: "object"
+          key_phrases: ["string"]
+    
+    code:
+      template_id: "code-base"
+      schema:
+        code_data:
+          ast: "object"
+          embeddings: "vector"
+          language: "string"
+        context:
+          project: "string"
+          file_path: "string"
+          dependencies: ["string"]
+        analysis:
+          patterns: ["string"]
+          complexity: "object"
+          security_issues: ["object"]
+
+  composite:
+    template_id: "composite-base"
+    schema:
+      primary_memory: "reference"
+      supporting_memories: ["reference"]
+      synthesis:
+        insights: ["text"]
+        patterns: ["object"]
+        predictions: ["object"]
+      metadata:
+        creation_time: "timestamp"
+        confidence: "float"
+        validity_period: "duration"
+
+# Seed Generation Rules
+generation_rules:
+  auto_seed:
+    enabled: true
+    triggers:
+      - "new_conversation"
+      - "context_switch"
+      - "explicit_learning"
+  
+  quality_control:
+    min_confidence: 0.6
+    require_validation: true
+    deduplication: true
+  
+  enrichment:
+    auto_tagging: true
+    concept_extraction: true
+    relationship_discovery: true

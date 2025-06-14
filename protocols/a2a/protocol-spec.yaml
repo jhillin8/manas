@@ -1,0 +1,181 @@
+# A2A (Agent-to-Agent) Protocol Specification
+# Protocol for inter-agent communication in Manas
+
+version: 1.0
+protocol:
+  name: "Agent-to-Agent Protocol"
+  abbreviation: "A2A"
+  type: "peer-to-peer"
+  transport: ["grpc", "nats", "kafka"]
+
+specification:
+  message_types:
+    request:
+      id: "uuid"
+      from_agent: "string"
+      to_agent: "string"
+      capability: "string"
+      payload: "object"
+      priority: "integer"
+      timeout: "duration"
+      timestamp: "ISO8601"
+    
+    response:
+      id: "uuid"
+      from_agent: "string"
+      to_agent: "string"
+      status: "success|failure|partial"
+      result: "object"
+      error: "object|null"
+      timestamp: "ISO8601"
+    
+    broadcast:
+      from_agent: "string"
+      topic: "string"
+      payload: "object"
+      ttl: "integer"
+      timestamp: "ISO8601"
+    
+    subscription:
+      agent_id: "string"
+      topics: ["string"]
+      capabilities: ["string"]
+      qos: "integer"
+
+  capabilities:
+    discovery:
+      - method: "discover.agents"
+        description: "Discover available agents"
+        params:
+          capabilities: ["string"]
+          status: "string"
+      
+      - method: "discover.capabilities"
+        description: "Discover agent capabilities"
+        params:
+          agent_id: "string"
+    
+    collaboration:
+      - method: "collaborate.propose"
+        description: "Propose collaboration"
+        params:
+          task: "object"
+          requirements: ["string"]
+          deadline: "timestamp"
+      
+      - method: "collaborate.accept"
+        description: "Accept collaboration"
+        params:
+          proposal_id: "uuid"
+          commitment: "object"
+      
+      - method: "collaborate.update"
+        description: "Update collaboration status"
+        params:
+          collaboration_id: "uuid"
+          status: "object"
+          progress: "float"
+    
+    negotiation:
+      - method: "negotiate.resource"
+        description: "Negotiate resource allocation"
+        params:
+          resource_type: "string"
+          amount: "number"
+          duration: "duration"
+      
+      - method: "negotiate.priority"
+        description: "Negotiate task priority"
+        params:
+          task_id: "uuid"
+          proposed_priority: "integer"
+          justification: "string"
+
+  routing:
+    strategies:
+      - direct: "Point-to-point communication"
+      - broadcast: "One-to-many communication"
+      - anycast: "One-to-any available"
+      - multicast: "One-to-specific-group"
+    
+    discovery_mechanisms:
+      - registry: "Central agent registry"
+      - gossip: "Peer discovery protocol"
+      - broadcast: "Network broadcast"
+
+  quality_of_service:
+    levels:
+      - level: 0
+        name: "best-effort"
+        guarantees: "none"
+      
+      - level: 1
+        name: "at-least-once"
+        guarantees: "delivery"
+      
+      - level: 2
+        name: "exactly-once"
+        guarantees: "delivery and ordering"
+    
+    reliability:
+      retry_policy:
+        max_attempts: 3
+        backoff: "exponential"
+        max_backoff: "30s"
+      
+      timeout_policy:
+        default: "5s"
+        max: "60s"
+        negotiable: true
+
+  security:
+    authentication:
+      type: "mutual-tls"
+      certificate_authority: "core/security/ca"
+    
+    authorization:
+      type: "capability-based"
+      policy_engine: "core/security/policies"
+    
+    encryption:
+      algorithm: "AES-256-GCM"
+      key_rotation: "24h"
+
+  monitoring:
+    metrics:
+      - message_count
+      - latency_p50
+      - latency_p99
+      - error_rate
+      - capability_usage
+    
+    tracing:
+      enabled: true
+      sampler: "adaptive"
+      exporter: "jaeger"
+
+  governance:
+    rate_limiting:
+      per_agent: 1000
+      per_capability: 100
+      window: "1m"
+    
+    circuit_breaking:
+      threshold: 0.5
+      window: "30s"
+      half_open_trials: 3
+    
+    priority_management:
+      levels: [1, 2, 3, 4, 5]
+      preemption: true
+      starvation_prevention: true
+
+implementation:
+  reference: "core/agents"
+  adapters:
+    - name: "grpc-adapter"
+      path: "protocols/adapters/a2a-grpc"
+    - name: "nats-adapter"
+      path: "protocols/adapters/a2a-nats"
+    - name: "kafka-adapter"
+      path: "protocols/adapters/a2a-kafka"

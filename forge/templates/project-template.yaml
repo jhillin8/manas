@@ -1,0 +1,73 @@
+# Project Template
+# Standard template for new Forge projects
+
+project:
+  name: "{{PROJECT_NAME}}"
+  description: "{{PROJECT_DESCRIPTION}}"
+  type: "{{PROJECT_TYPE}}"  # web-app, cli-tool, library, service, etc.
+  version: "0.1.0"
+  status: "active"  # active, experimental, paused, completed
+
+metadata:
+  created: "{{TIMESTAMP}}"
+  author: "{{AUTHOR}}"
+  tags: []
+  priority: "medium"  # low, medium, high, critical
+
+structure:
+  directories:
+    - src/
+    - tests/
+    - docs/
+    - config/
+    - scripts/
+  
+  files:
+    - README.md
+    - .gitignore
+    - requirements.txt  # or package.json, go.mod, etc.
+    - Dockerfile
+    - docker-compose.yml
+
+dependencies:
+  runtime: []
+  development: []
+  optional: []
+
+configuration:
+  environment_variables: []
+  secrets: []
+  external_services: []
+
+integration:
+  mcp_servers: []
+  agents: []
+  memory_access: []
+
+development:
+  setup_commands: []
+  build_command: ""
+  test_command: ""
+  run_command: ""
+  
+deployment:
+  type: "docker"  # docker, kubernetes, serverless, static
+  environments:
+    - development
+    - staging
+    - production
+
+monitoring:
+  metrics: []
+  alerts: []
+  dashboards: []
+
+documentation:
+  readme_sections:
+    - overview
+    - installation
+    - usage
+    - configuration
+    - development
+    - deployment
+    - contributing
