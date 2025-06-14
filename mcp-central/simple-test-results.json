@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-06-07T17:53:40.130941",
+  "total_tests": 6,
+  "passed_tests": 4,
+  "success_rate": 66.66666666666666,
+  "test_results": {
+    "File Structure": {
+      "success": true,
+      "total_files": 15,
+      "existing_files": 15,
+      "missing_files": []
+    },
+    "Temporal Processor": {
+      "success": true,
+      "output": "Staleness: 0.0, Relevance: 1.0\nTemporal engine test completed successfully\n",
+      "error": null
+    },
+    "Graph Service": {
+      "success": false,
+      "output": "",
+      "error": "Traceback (most recent call last):\n  File \"/Users/josephhillin/workspace/mcp-central/graph/memory-graph-service.py\", line 10, in <module>\n    import networkx as nx\nModuleNotFoundError: No module named 'networkx'\n"
+    },
+    "Audit System": {
+      "success": true,
+      "output": "Audit system initialized\n",
+      "error": null
+    },
+    "Startup Script": {
+      "success": true,
+      "has_help_text": true,
+      "output": "\u001b[0;35m\ud83e\udde0 Cross-Agent Memory Intelligence System\u001b[0m\n\u001b[0;35m=========================================\u001b[0m\n\n\u001b[0;35mUsage: /Users/josephhillin/workspace/mcp-central/start-memory-system.sh [command]\u001b[0m\n\n..."
+    },
+    "CLI Help": {
+      "success": false,
+      "has_help_text": false,
+      "output": ""
+    }
+  }
+}

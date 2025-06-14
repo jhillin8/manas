@@ -1,0 +1,124 @@
+{
+  "start_time": "2025-06-07T17:53:10.435454",
+  "tests_run": 10,
+  "tests_passed": 1,
+  "tests_failed": 9,
+  "test_details": {
+    "Component Initialization": {
+      "success": false,
+      "execution_time": 1.9073486328125e-06,
+      "details": {
+        "success": false,
+        "components_tested": 0,
+        "components_passed": 0,
+        "details": "0/0 components initialized successfully"
+      },
+      "timestamp": "2025-06-07T17:53:10.435470"
+    },
+    "Memory Validation": {
+      "success": false,
+      "execution_time": 1.1920928955078125e-06,
+      "details": {
+        "success": false,
+        "error": "Validator not available",
+        "skipped": true
+      },
+      "timestamp": "2025-06-07T17:53:10.435475"
+    },
+    "Graph Operations": {
+      "success": false,
+      "execution_time": 0.0,
+      "details": {
+        "success": false,
+        "error": "Graph service not available",
+        "skipped": true
+      },
+      "timestamp": "2025-06-07T17:53:10.435478"
+    },
+    "Temporal Intelligence": {
+      "success": false,
+      "execution_time": 1.1920928955078125e-06,
+      "details": {
+        "success": false,
+        "error": "Temporal engine not available",
+        "skipped": true
+      },
+      "timestamp": "2025-06-07T17:53:10.435480"
+    },
+    "Security & Audit": {
+      "success": false,
+      "execution_time": 0.0,
+      "details": {
+        "success": false,
+        "error": "Audit system not available",
+        "skipped": true
+      },
+      "timestamp": "2025-06-07T17:53:10.435483"
+    },
+    "Team Memory Sharing": {
+      "success": false,
+      "execution_time": 9.5367431640625e-07,
+      "details": {
+        "success": false,
+        "error": "Team manager not available",
+        "skipped": true
+      },
+      "timestamp": "2025-06-07T17:53:10.435485"
+    },
+    "LangFlow Integration": {
+      "success": false,
+      "execution_time": 0.0,
+      "details": {
+        "success": false,
+        "error": "LangFlow bridge not available",
+        "skipped": true
+      },
+      "timestamp": "2025-06-07T17:53:10.435488"
+    },
+    "Raycast Config Sync": {
+      "success": false,
+      "execution_time": 0.0,
+      "details": {
+        "success": false,
+        "error": "Raycast registry not available",
+        "skipped": true
+      },
+      "timestamp": "2025-06-07T17:53:10.435490"
+    },
+    "CLI Interface": {
+      "success": false,
+      "execution_time": 0.05769991874694824,
+      "details": {
+        "success": false,
+        "cli_accessible": true,
+        "help_command_works": false,
+        "details": "CLI interface tests completed"
+      },
+      "timestamp": "2025-06-07T17:53:10.493209"
+    },
+    "File Structure Validation": {
+      "success": true,
+      "execution_time": 6.604194641113281e-05,
+      "details": {
+        "success": true,
+        "total_files": 15,
+        "existing_files": 15,
+        "missing_files": [],
+        "details": "15/15 expected files found"
+      },
+      "timestamp": "2025-06-07T17:53:10.493314"
+    }
+  },
+  "system_health": {},
+  "import_status": {
+    "temporal_engine": false,
+    "graph_service": false,
+    "audit_system": false,
+    "validator": false,
+    "langflow_bridge": false,
+    "team_manager": false,
+    "raycast_registry": false
+  },
+  "end_time": "2025-06-07T17:53:10.493316",
+  "success_rate": 10.0
+}

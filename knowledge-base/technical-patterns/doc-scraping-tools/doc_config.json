@@ -1,0 +1,99 @@
+{
+    "max_pages": 5,
+    "max_retries": 3,
+    "chunk_size": 1500,
+    "rate_limit": {
+        "requests_per_second": 1
+    },
+    "selectors": {
+        "content": [
+            "article",
+            "main",
+            "[role='main']",
+            ".content",
+            ".documentation",
+            ".markdown-body",
+            "#content",
+            ".docs-content",
+            ".post-content",
+            ".docusaurus-content",
+            ".sphinx-content",
+            ".mkdocs-content",
+            ".gitbook-content",
+            ".readme-content"
+        ],
+        "title": [
+            "h1",
+            "article h1",
+            ".article-title",
+            ".doc-title",
+            "[role='heading']",
+            ".docusaurus-title",
+            ".sphinx-title",
+            ".mkdocs-title",
+            ".gitbook-title"
+        ],
+        "description": [
+            ".lead",
+            ".introduction",
+            ".summary",
+            ".description",
+            "article p:first-of-type",
+            ".docusaurus-description",
+            ".sphinx-description",
+            ".mkdocs-description",
+            ".gitbook-description"
+        ]
+    },
+    "exclude_patterns": [
+        "/search",
+        "/login",
+        "/signup",
+        "/download",
+        ".pdf",
+        ".zip",
+        ".exe",
+        ".dmg",
+        "javascript:",
+        "mailto:",
+        "tel:",
+        "/blog/",
+        "/pricing/",
+        "/enterprise/",
+        "/terms/",
+        "/privacy/",
+        "/changelog/",
+        "/releases/",
+        "/community/"
+    ],
+    "framework_specific": {
+        "docusaurus": {
+            "selectors": {
+                "content": [".docusaurus-content", ".theme-doc-markdown"],
+                "title": [".theme-doc-markdown h1", ".docusaurus-title"],
+                "description": [".theme-doc-markdown > p:first-of-type"]
+            }
+        },
+        "sphinx": {
+            "selectors": {
+                "content": [".body", ".document", ".sphinxcontrib-content"],
+                "title": [".section h1", ".sphinxcontrib-title"],
+                "description": [".topic-title + p", ".sphinxcontrib-description"]
+            }
+        },
+        "mkdocs": {
+            "selectors": {
+                "content": [".md-content__inner", ".mkdocs-content"],
+                "title": [".md-content__inner h1", ".mkdocs-title"],
+                "description": [".md-content__inner > p:first-of-type"]
+            }
+        },
+        "gitbook": {
+            "selectors": {
+                "content": [".reset-3c756112--content-0a7aa00c"],
+                "title": [".reset-3c756112--pageTitle-25266c1b"],
+                "description": [".reset-3c756112--description-7f523bdf"]
+            }
+        }
+    }
+} 

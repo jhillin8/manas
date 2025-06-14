@@ -1,0 +1,20 @@
+{
+  "nodes": [
+    {
+      "id": "memory_intake",
+      "type": "ChatInput",
+      "data": {
+        "input_value": "",
+        "sender": "Memory Steward",
+        "sender_name": "System"
+      }
+    },
+    {
+      "id": "schema_validator",
+      "type": "PythonCodeExecutor", 
+      "data": {
+        "code": "import yaml\nimport json\nfrom datetime import datetime\n\ndef validate_memory_entry(content, suggested_category=None):\n    # Load schema\n    with open('/Users/josephhillin/workspace/mcp-central/memory-policies/temporal-schema.yaml', 'r') as f:\n        schema = yaml.safe_load(f)\n    \n    result = {\n        'validation_score': 0.0,\n        'suggested_category': suggested_category,\n        'extracted_tags': [],\n        'quality_metrics': {},\n        'recommendations': []\n    }\n    \n    # Content quality assessment\n    content_len = len(content)\n    if content_len < 50:\n        result['quality_metrics']['length_penalty'] = -0.3\n    elif content_len > 5000:\n        result['quality_metrics']['length_penalty'] = -0.2\n    else:\n        result['quality_metrics']['length_penalty'] = 0.0\n    \n    # Specificity scoring\n    technical_terms = ['function', 'class', 'API', 'database', 'algorithm', 'pattern']\n    specificity_score = sum(1 for term in technical_terms if term.lower() in content.lower()) / len(technical_terms)\n    result['quality_metrics']['specificity'] = specificity_score\n    \n    # Category confidence\n    if suggested_category and suggested_category in schema.get('memory_categories', {}):\n        category_patterns = schema.get('auto_categorization', {}).get(suggested_category, [])\n        pattern_matches = sum(1 for pattern in category_patterns if pattern in content.lower())\n        result['quality_metrics']['category_confidence'] = pattern_matches / max(len(category_patterns), 1)\n    else:\n        result['quality_metrics']['category_confidence'] = 0.0\n    \n    # Actionability assessment\n    action_indicators = ['how to', 'solution', 'fix', 'implement', 'use', 'avoid', 'remember']\n    actionability = sum(1 for indicator in action_indicators if indicator in content.lower()) / len(action_indicators)\n    result['quality_metrics']['actionability'] = actionability\n    \n    # Calculate overall validation score\n    result['validation_score'] = (\n        0.3 * result['quality_metrics']['specificity'] +\n        0.3 * result['quality_metrics']['category_confidence'] +\n        0.2 * result['quality_metrics']['actionability'] +\n        0.2 * (1.0 + result['quality_metrics']['length_penalty'])\n    )\n    \n    # Generate recommendations\n    if result['validation_score'] < 0.6:\n        result['recommendations'].append('Consider adding more specific technical details')\n    if result['quality_metrics']['actionability'] < 0.3:\n        result['recommendations'].append('Include actionable insights or next steps')\n    \n    return result\n\n# Execute validation\nvalidation_result = validate_memory_entry(content, suggested_category)\nprint(json.dumps(validation_result, indent=2))"
+      }
+    }
+  ]
+}

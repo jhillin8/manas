@@ -1,0 +1,65 @@
+# Cross-Agent Memory Intelligence System Requirements
+# Core dependencies for the unified memory system
+
+# Async and networking
+asyncio==3.4.3
+aiohttp==3.9.1
+aiofiles==23.2.0
+
+# Data processing and storage
+networkx==3.2.1
+sqlite3==3.40.1  
+pyyaml==6.0.1
+json5==0.9.14
+
+# System monitoring
+psutil==5.9.6
+
+# AI/ML and LangFlow
+langflow==1.0.12
+openai==1.6.1
+anthropic==0.8.1
+
+# Vector database
+qdrant-client==1.7.0
+
+# Memory system
+mem0ai==0.1.12
+
+# Security and validation
+hashlib2==1.0.1
+difflib2==0.1
+
+# Date/time processing  
+python-dateutil==2.8.2
+
+# HTTP requests
+requests==2.31.0
+
+# Development and testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Optional: Enhanced text processing
+nltk==3.8.1
+spacy==3.7.2
+
+# Optional: Enhanced visualization
+matplotlib==3.8.2
+plotly==5.17.0
+
+# Web scraping (for future integrations)
+beautifulsoup4==4.12.2
+
+# Configuration management
+python-dotenv==1.0.0
+
+# CLI enhancements
+click==8.1.7
+rich==13.7.0
+
+# Docker integration
+docker==7.0.0
+
+# Raycast integration helpers
+applescript==2021.1.21

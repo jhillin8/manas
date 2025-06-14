@@ -1,0 +1,90 @@
+# Docker Resource Profiles for OpenMemory MCP
+# Allows switching between performance configurations
+
+profiles:
+  low_power:
+    description: "Battery-saving configuration for mobile work"
+    docker_config:
+      memory_limit: "2GB"
+      cpu_limit: "1.0"
+      swap_limit: "1GB"
+    services:
+      postgres:
+        memory: "256MB"
+        cpu: "0.2"
+        shared_buffers: "64MB"
+        work_mem: "4MB"
+      qdrant:
+        memory: "512MB"
+        cpu: "0.3"
+        collection_size: "small"
+      openmemory_api:
+        memory: "512MB"
+        cpu: "0.3"
+        worker_processes: 1
+    features:
+      background_sync: false
+      real_time_validation: false
+      graph_auto_update: false
+
+  balanced:
+    description: "Standard development configuration"
+    docker_config:
+      memory_limit: "4GB"
+      cpu_limit: "2.0"
+      swap_limit: "2GB"
+    services:
+      postgres:
+        memory: "512MB"
+        cpu: "0.5"
+        shared_buffers: "128MB"
+        work_mem: "8MB"
+      qdrant:
+        memory: "1GB"
+        cpu: "0.5"
+        collection_size: "medium"
+      openmemory_api:
+        memory: "1GB"
+        cpu: "0.5"
+        worker_processes: 2
+    features:
+      background_sync: true
+      real_time_validation: true
+      graph_auto_update: true
+
+  high_performance:
+    description: "Maximum performance for intensive AI workloads"
+    docker_config:
+      memory_limit: "8GB"
+      cpu_limit: "4.0"
+      swap_limit: "4GB"
+    services:
+      postgres:
+        memory: "2GB"
+        cpu: "1.0"
+        shared_buffers: "512MB"
+        work_mem: "32MB"
+      qdrant:
+        memory: "3GB"
+        cpu: "1.5"
+        collection_size: "large"
+      openmemory_api:
+        memory: "2GB"
+        cpu: "1.0"
+        worker_processes: 4
+    features:
+      background_sync: true
+      real_time_validation: true
+      graph_auto_update: true
+      preemptive_caching: true
+      advanced_indexing: true
+
+# Profile switching automation
+automation:
+  battery_threshold: 20  # Switch to low_power when battery < 20%
+  cpu_threshold: 80      # Switch to balanced when CPU > 80% for 5 min
+  memory_threshold: 85   # Switch profile when memory > 85%
+  time_based:
+    work_hours: "high_performance"  # 9 AM - 6 PM
+    evening: "balanced"             # 6 PM - 11 PM  
+    night: "low_power"              # 11 PM - 9 AM

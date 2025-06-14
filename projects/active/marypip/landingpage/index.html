@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mary & Pip - Your personal CFO, for how you actually live</title>
+    <meta name="description" content="Every time money hits your account, we help you decide what to do with it—in real time. Join the waitlist for culturally fluent personal finance.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream': '#FFF8F3',
+                        'blush': '#FFE4E1',
+                        'soft-gold': '#F7E7CE',
+                        'warm-gray': '#8B7F77'
+                    },
+                    fontFamily: {
+                        'display': ['Georgia', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans text-warm-gray bg-cream overflow-x-hidden">
+    
+    <!-- Animated background elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-blush rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-soft-gold rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-rose-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 py-20">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="mb-8 animate-fade-in">
+                <span class="inline-block px-4 py-2 bg-white/80 backdrop-blur rounded-full text-sm font-medium text-warm-gray">
+                    ✨ Coming Soon to iOS
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-fade-in text-gray-900">
+                Your personal CFO,<br class="hidden md:block"/> for how you <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-rose-600">actually live</span>.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto animate-fade-in-delay">
+                Every time money hits your account, we help you decide what to do with it—in real time.
+            </p>
+            <button class="group relative bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 animate-fade-in-delay-2 shadow-xl hover:shadow-2xl">
+                <span class="relative z-10">Join the Waitlist</span>
+                <div class="absolute inset-0 rounded-full bg-gradient-to-r from-amber-600 to-rose-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </button>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section class="relative py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">What We Offer</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Everything you need to manage money the way you actually live—intuitive, intelligent, and always in sync with you.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <div class="feature-card group relative rounded-3xl p-8 bg-gradient-to-br from-cream to-white border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-xl">
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-amber-50 to-rose-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center text-3xl shadow-sm">
+                            💸
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Smart Allocator</h3>
+                        <p class="text-gray-600 leading-relaxed">Get real-time nudges to allocate income to spend, save, invest</p>
+                    </div>
+                </div>
+                <div class="feature-card group relative rounded-3xl p-8 bg-gradient-to-br from-cream to-white border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-xl">
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-50 to-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center text-3xl shadow-sm">
+                            📲
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Integrated Dashboard</h3>
+                        <p class="text-gray-600 leading-relaxed">See all your accounts in one clean view</p>
+                    </div>
+                </div>
+                <div class="feature-card group relative rounded-3xl p-8 bg-gradient-to-br from-cream to-white border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-xl">
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center text-3xl shadow-sm">
+                            📋
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Personalized To-Do List</h3>
+                        <p class="text-gray-600 leading-relaxed">Intelligent action items that move you forward</p>
+                    </div>
+                </div>
+                <div class="feature-card group relative rounded-3xl p-8 bg-gradient-to-br from-cream to-white border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-xl">
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-green-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center text-3xl shadow-sm">
+                            🧠
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Built on Behavioral Finance</h3>
+                        <p class="text-gray-600 leading-relaxed">No shame, just smart psychology</p>
+                    </div>
+                </div>
+                <div class="feature-card group relative rounded-3xl p-8 bg-gradient-to-br from-cream to-white border border-gray-100 hover:border-gray-200 transition-all duration-300 hover:shadow-xl lg:col-span-2">
+                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-yellow-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative z-10">
+                        <div class="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-yellow-100 to-yellow-50 flex items-center justify-center text-3xl shadow-sm">
+                            💡
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Culturally Fluent</h3>
+                        <p class="text-gray-600 leading-relaxed">Feels like your favorite app, not a spreadsheet. Built for how modern professionals actually manage money.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target User Section -->
+    <section class="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-50 via-rose-50 to-cream"></div>
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Built for the self-employed, self-made, and self-directed</h2>
+            <p class="text-lg text-gray-700 mb-12 max-w-2xl mx-auto">We understand your income isn't predictable—and that's exactly why we built Mary & Pip.</p>
+            <div class="relative">
+                <!-- Scrolling personas container -->
+                <div class="persona-scroll-container overflow-hidden relative">
+                    <div class="persona-scroll flex gap-6 animate-scroll-left">
+                        <div class="persona-card group relative">
+                            <div class="px-8 py-6 bg-white/90 backdrop-blur rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">✨</span>
+                                    <div class="text-left">
+                                        <h3 class="font-semibold text-gray-900">The Model</h3>
+                                        <p class="text-sm text-gray-600">Variable income, global lifestyle</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="persona-card group relative">
+                            <div class="px-8 py-6 bg-white/90 backdrop-blur rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">🎨</span>
+                                    <div class="text-left">
+                                        <h3 class="font-semibold text-gray-900">The Creator</h3>
+                                        <p class="text-sm text-gray-600">Multiple revenue streams</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="persona-card group relative">
+                            <div class="px-8 py-6 bg-white/90 backdrop-blur rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">💻</span>
+                                    <div class="text-left">
+                                        <h3 class="font-semibold text-gray-900">The Freelancer</h3>
+                                        <p class="text-sm text-gray-600">Project-based income</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="persona-card group relative">
+                            <div class="px-8 py-6 bg-white/90 backdrop-blur rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">🚀</span>
+                                    <div class="text-left">
+                                        <h3 class="font-semibold text-gray-900">The Startup Founder</h3>
+                                        <p class="text-sm text-gray-600">Equity & salary mix</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="persona-card group relative">
+                            <div class="px-8 py-6 bg-white/90 backdrop-blur rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">📸</span>
+                                    <div class="text-left">
+                                        <h3 class="font-semibold text-gray-900">The Influencer</h3>
+                                        <p class="text-sm text-gray-600">Brand deals & sponsorships</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="persona-card group relative">
+                            <div class="px-8 py-6 bg-white/90 backdrop-blur rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">🎭</span>
+                                    <div class="text-left">
+                                        <h3 class="font-semibold text-gray-900">The Artist</h3>
+                                        <p class="text-sm text-gray-600">Commissions & sales</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Duplicate for seamless scroll -->
+                        <div class="persona-card group relative">
+                            <div class="px-8 py-6 bg-white/90 backdrop-blur rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-3xl">✨</span>
+                                    <div class="text-left">
+                                        <h3 class="font-semibold text-gray-900">The Model</h3>
+                                        <p class="text-sm text-gray-600">Variable income, global lifestyle</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Features -->
+    <section class="py-24 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-white to-cream">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Coming Soon</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Features we're building to make your financial life even smoother.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="upcoming-feature group">
+                    <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 h-full">
+                        <div class="w-14 h-14 bg-gradient-to-br from-indigo-100 to-indigo-50 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                            🧾
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Upcoming In & Outs</h3>
+                        <p class="text-gray-600 mb-6">Visual progress bars for upcoming expenses and income</p>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-sm text-gray-500 mb-1">
+                                <span>Development Progress</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-400 to-purple-400 h-3 rounded-full progress-bar transition-all duration-1000" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="upcoming-feature group">
+                    <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 h-full">
+                        <div class="w-14 h-14 bg-gradient-to-br from-rose-100 to-rose-50 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                            🏷
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Wishlist Spending</h3>
+                        <p class="text-gray-600 mb-6">Track big-ticket dreams and reduce impulse buys</p>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-sm text-gray-500 mb-1">
+                                <span>Development Progress</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
+                                <div class="bg-gradient-to-r from-rose-400 to-pink-400 h-3 rounded-full progress-bar transition-all duration-1000" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="upcoming-feature group">
+                    <div class="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 h-full">
+                        <div class="w-14 h-14 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl flex items-center justify-center text-2xl mb-6">
+                            ✅
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-gray-900">Smart Automation</h3>
+                        <p class="text-gray-600 mb-6">Automated financial tasks that save you time daily</p>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-sm text-gray-500 mb-1">
+                                <span>Development Progress</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-3 overflow-hidden">
+                                <div class="bg-gradient-to-r from-emerald-400 to-green-400 h-3 rounded-full progress-bar transition-all duration-1000" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Story -->
+    <section class="relative py-24 px-6 md:px-12 lg:px-24">
+        <div class="absolute inset-0 bg-gradient-to-br from-white via-cream to-blush opacity-50"></div>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="bg-white/90 backdrop-blur rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">From Deutsche Bank to Ford Models</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                            Mary Holland Nader built her career bridging the worlds of high finance and creative industries. 
+                            After years at Deutsche Bank and working with models at Ford, she realized traditional financial 
+                            advice wasn't built for the modern workforce.
+                        </p>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Mary & Pip is her answer: real-time, culturally fluent money management that works for how you 
+                            actually live—not how your parents did.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="aspect-square rounded-2xl bg-gradient-to-br from-amber-100 to-rose-100 p-8 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-white/80 backdrop-blur flex items-center justify-center text-6xl shadow-lg">
+                                    👩‍💼
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-900 mb-2">Mary Holland Nader</h3>
+                                <p class="text-gray-600">Founder & CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture Footer -->
+    <section class="relative py-24 px-6 md:px-12 lg:px-24 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-amber-50 via-soft-gold to-rose-50"></div>
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <div class="mb-8">
+                <span class="inline-block px-4 py-2 bg-white/80 backdrop-blur rounded-full text-sm font-medium text-warm-gray mb-6">
+                    🚀 Be the first to know
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                    Get early access to the only<br class="hidden md:block"/> money app built <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-rose-600">for you</span>.
+                </h2>
+            </div>
+            
+            <form id="waitlist-form" class="max-w-md mx-auto mb-8">
+                <div class="relative">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        class="w-full px-6 py-4 pr-32 rounded-full border-2 border-gray-200 focus:outline-none focus:border-gray-400 transition-colors text-gray-900 placeholder-gray-500 bg-white/90 backdrop-blur"
+                        required
+                    >
+                    <button 
+                        type="submit" 
+                        class="absolute right-1 top-1 bottom-1 bg-gray-900 text-white px-6 rounded-full font-medium hover:bg-gray-800 transition-all transform hover:scale-105"
+                    >
+                        Join
+                    </button>
+                </div>
+            </form>
+            
+            <p class="text-gray-700 font-medium">Launching soon for iOS. Join the waitlist today.</p>
+            
+            <!-- Social proof -->
+            <div class="mt-12 flex items-center justify-center gap-8 flex-wrap">
+                <div class="flex items-center gap-2">
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-200 to-amber-300 flex items-center justify-center text-xs">👤</div>
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-rose-200 to-rose-300 flex items-center justify-center text-xs">👤</div>
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-200 to-indigo-300 flex items-center justify-center text-xs">👤</div>
+                    </div>
+                    <span class="text-sm text-gray-600">Join 500+ early adopters</span>
+                </div>
+                <div class="flex items-center gap-1">
+                    <span class="text-yellow-500">★★★★★</span>
+                    <span class="text-sm text-gray-600">Loved by creatives</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-sm">© 2024 Mary & Pip. Building the future of personal finance.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

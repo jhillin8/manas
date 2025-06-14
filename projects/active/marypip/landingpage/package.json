@@ -1,0 +1,22 @@
+{
+  "name": "marypip-landing",
+  "version": "1.0.0",
+  "description": "Mary & Pip - Your personal CFO, for how you actually live",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "build": "echo 'No build required - static HTML/CSS/JS'",
+    "serve": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "personal-finance",
+    "fintech",
+    "landing-page",
+    "lifestyle"
+  ],
+  "author": "Mary & Pip",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+} 

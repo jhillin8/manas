@@ -1,0 +1,70 @@
+agent_name: "Memory Steward"
+agent_type: "memory_lifecycle_manager"
+version: "1.0.0"
+
+capabilities:
+  - memory_validation
+  - category_suggestion
+  - relationship_extraction
+  - quality_assessment
+  - lifecycle_management
+
+triggers:
+  - new_memory_entry
+  - memory_access_pattern_change
+  - scheduled_cleanup
+  - cross_reference_request
+
+workflow:
+  validation:
+    - schema_compliance_check
+    - content_quality_assessment
+    - duplicate_detection
+    - category_confidence_scoring
+    
+  enhancement:
+    - tag_normalization
+    - relationship_extraction
+    - temporal_metadata_addition
+    - confidence_scoring
+    
+  lifecycle:
+    - relevance_decay_modeling
+    - access_pattern_analysis
+    - compression_candidate_identification
+    - archival_recommendation
+
+integration:
+  mcp_endpoint: "http://localhost:8765/mcp/memory-steward/sse/josephhillin"
+  validation_service: "http://localhost:8766/validate"
+  graph_service: "http://localhost:8767/relationships"
+  
+memory_policies:
+  auto_approve_threshold: 0.85
+  manual_review_threshold: 0.6
+  reject_threshold: 0.3
+  
+  quality_metrics:
+    - content_specificity
+    - actionability_score
+    - uniqueness_factor
+    - temporal_relevance
+
+# LangFlow integration settings
+langflow_integration:
+  enabled: true
+  endpoint: "http://localhost:7860"
+  flow_template: "memory_steward_template"
+  auto_deploy: true
+  
+# Machine learning configuration
+ml_config:
+  model_path: "./models/memory_classifier.pkl"
+  retrain_interval_days: 7
+  confidence_threshold: 0.75
+  feature_extraction:
+    - content_length
+    - technical_term_density
+    - code_snippet_presence
+    - url_presence
+    - timestamp_patterns

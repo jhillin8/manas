@@ -1,0 +1,158 @@
+# Enhanced Memory Schema with Temporal Intelligence
+temporal_intelligence:
+  access_tracking:
+    last_accessed: "timestamp"
+    access_frequency: "number"
+    access_pattern: "daily | weekly | monthly | rare"
+    access_contexts: ["tool_name", "query_type", "project_context"]
+  
+  relevance_modeling:
+    staleness_factor: "0.0-1.0"  # 0 = fresh, 1 = stale
+    decay_rate: "fast | medium | slow | very_slow"
+    half_life_days: "number"
+    relevance_boost_events: ["accessed", "referenced", "updated"]
+  
+  temporal_metadata:
+    created_timestamp: "ISO_8601"
+    last_modified: "ISO_8601"
+    next_review_date: "ISO_8601"
+    version_sensitivity: "high | medium | low"
+    seasonal_relevance: "none | quarterly | annually"
+
+# Enhanced memory categories with temporal awareness
+memory_categories:
+  project_active:
+    retention_days: 90
+    tags_required: [project_name, technology_stack, status]
+    auto_archive: true
+    temporal_config:
+      decay_rate: "fast"
+      half_life_days: 30
+      relevance_boost_on: ["daily_access", "code_commit"]
+      staleness_threshold: 14  # days without access
+    
+  project_research:
+    retention_days: 180
+    tags_required: [research_topic, technology, priority]
+    auto_archive: true
+    temporal_config:
+      decay_rate: "medium"
+      half_life_days: 60
+      relevance_boost_on: ["weekly_access", "related_search"]
+      staleness_threshold: 30
+    
+  preferences_coding:
+    retention_days: 365
+    tags_required: [language, framework, pattern_type]
+    auto_archive: false
+    temporal_config:
+      decay_rate: "slow"
+      half_life_days: 180
+      relevance_boost_on: ["pattern_match", "style_reference"]
+      staleness_threshold: 90
+    
+  knowledge_technical:
+    retention_days: -1  # permanent
+    tags_required: [technology, use_case, complexity, source]
+    auto_archive: false
+    temporal_config:
+      decay_rate: "very_slow"
+      half_life_days: 365
+      relevance_boost_on: ["solution_reference", "related_problem"]
+      staleness_threshold: 180
+    
+  knowledge_business:
+    retention_days: -1  # permanent
+    tags_required: [industry, insight_type, confidence_level]
+    auto_archive: false
+    temporal_config:
+      decay_rate: "slow"
+      half_life_days: 270
+      relevance_boost_on: ["strategic_planning", "market_analysis"]
+      staleness_threshold: 120
+
+# Auto-categorization patterns for ML training
+auto_categorization:
+  project_active:
+    - "currently working"
+    - "active project"
+    - "sprint"
+    - "deadline"
+    - "TODO"
+    - "bug fix"
+    - "feature"
+    
+  project_research:
+    - "evaluating"
+    - "research"
+    - "comparing"
+    - "investigating"
+    - "prototype"
+    - "proof of concept"
+    
+  preferences_coding:
+    - "prefer"
+    - "style"
+    - "convention"
+    - "best practice"
+    - "coding standard"
+    - "pattern"
+    
+  knowledge_technical:
+    - "how to"
+    - "solution"
+    - "algorithm"
+    - "implementation"
+    - "library"
+    - "API"
+    - "framework"
+    
+  knowledge_business:
+    - "strategy"
+    - "market"
+    - "business"
+    - "revenue"
+    - "customer"
+    - "competition"
+
+# Temporal query patterns
+query_patterns:
+  recently_forgotten:
+    description: "Memories not accessed recently but previously valuable"
+    criteria:
+      - staleness_factor > 0.6
+      - historical_access_frequency > 5
+      - last_accessed > staleness_threshold
+    
+  trending_up:
+    description: "Memories with increasing access frequency"
+    criteria:
+      - access_frequency_trend > 0.3
+      - recent_access_count > historical_average
+    
+  about_to_expire:
+    description: "Memories approaching retention limits"
+    criteria:
+      - days_until_expiry < 7
+      - access_frequency > 2
+    
+  context_relevant:
+    description: "Memories relevant to current work context"
+    criteria:
+      - context_overlap > 0.7
+      - temporal_proximity < 30_days
+
+# Memory sweeper configuration
+sweeper_config:
+  schedule: "daily_at_2am"
+  operations:
+    - update_staleness_factors
+    - identify_forgotten_gems
+    - flag_expiring_memories
+    - calculate_relevance_scores
+    - generate_review_queue
+  
+  notifications:
+    forgotten_gems_threshold: 5
+    expiring_memories_threshold: 10
+    review_queue_max: 20
