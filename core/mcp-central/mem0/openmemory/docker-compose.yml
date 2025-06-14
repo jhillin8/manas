@@ -1,0 +1,21 @@
+services:
+  mem0_store:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - mem0_storage:/mem0/storage
+  openmemory-mcp:
+    image: mem0/openmemory-mcp:latest
+    environment:
+      - OPENAI_API_KEY=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
+      - USER=josephhillin
+      - QDRANT_HOST=mem0_store
+      - QDRANT_PORT=6333
+    depends_on:
+      - mem0_store
+    ports:
+      - "8765:8765"
+
+volumes:
+  mem0_storage:

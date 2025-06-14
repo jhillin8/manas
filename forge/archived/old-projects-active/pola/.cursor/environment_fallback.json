@@ -1,0 +1,5 @@
+{
+  "install": "cd /Users/josephhillin/manas/projects/active/pola/sb988_simulator && source venv/bin/activate && echo 'Environment activated'",
+  "terminals": [],
+  "workingDirectory": "/Users/josephhillin/manas/projects/active/pola/sb988_simulator"
+}
